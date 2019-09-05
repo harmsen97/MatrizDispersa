@@ -18,6 +18,14 @@ public:
             this->matriz[i] = new int[COL];
         this->matriz=convertidor(sparseMatrix);
 
+        std::cout<<"Matriz Dispera"<<std::endl;
+        for (int i=0; i<3; i++)
+        {
+            for (int j=0; j<COL; j++)
+                printf("%d ", matriz[i][j]);
+
+            printf("\n");
+            }
 
     }
      int** convertidor(int sparseMatrix[][COL]){
@@ -44,16 +52,6 @@ public:
                 }
 
         }
-
-         std::cout<<"============"<<std::endl;
-        std::cout<<"Matriz Dispera"<<std::endl;
-         for (int i=0; i<3; i++)
-         {
-             for (int j=0; j<size; j++)
-                 printf("%d ", compactMatrix[i][j]);
-
-             printf("\n");
-         }
 
          return compactMatrix;
         }
