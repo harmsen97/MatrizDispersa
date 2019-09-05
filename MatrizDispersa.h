@@ -29,11 +29,11 @@ public:
                     size++;
 
         int **compactMatrix=new int*[3];
-         for(int i = 0; i < 3; ++i)
+         for(int i = 0; i < 3; i++)
              compactMatrix[i] = new int[size];
 
         int k = 0;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++){
             for (int j = 0; j < COL; j++)
                 if (sparseMatrix[i][j] != 0)
                 {
@@ -43,8 +43,19 @@ public:
                     k++;
                 }
 
+        }
 
-            return compactMatrix;
+         std::cout<<"============"<<std::endl;
+        std::cout<<"Matriz Dispera"<<std::endl;
+         for (int i=0; i<3; i++)
+         {
+             for (int j=0; j<size; j++)
+                 printf("%d ", compactMatrix[i][j]);
+
+             printf("\n");
+         }
+
+         return compactMatrix;
         }
 
     int** suma(int Matrix[][COL]){
@@ -53,12 +64,12 @@ public:
                 aMatrix[i] = new int[COL];
             aMatrix=convertidor(Matrix);
 
-            int** outputMatrix = new int*[FIL];
+            int** outputMatrix = new int*[3];
             for(int i = 0; i < 3; ++i)
                 outputMatrix[i] = new int[COL];
 
 
-            for (int j = 0; j <COL; j++) {
+            for (int j = 0; j <COL+1; j++) {
 
                 if(aMatrix[0][j]==matriz[0][j] && aMatrix[1][j]==matriz[1][j]){
                     outputMatrix[0][j]=aMatrix[0][j];
@@ -87,9 +98,14 @@ public:
                     outputMatrix[2][j]=matriz[2][j];
                 }
             }
-            for (int i=0; i<3; i++)
+
+        std::cout<<"============"<<std::endl;
+        std::cout<<"Suma de matrices"<<std::endl;
+
+
+        for (int i=0; i<3; i++)
             {
-                for (int j=0; j<COL; j++)
+                for (int j=0; j<COL+1; j++)
                     printf("%d ", outputMatrix[i][j]);
 
                 printf("\n");
@@ -109,7 +125,8 @@ public:
             aMatrix[0][i]=aMatrix[1][i];
             aMatrix[1][i]=array[i];
         }
-
+        std::cout<<"============"<<std::endl;
+        std::cout<<"Matriz transpuesta"<<std::endl;
         for (int i=0; i<3; i++)
         {
             for (int j=0; j<COL; j++)
@@ -143,7 +160,8 @@ public:
                 outputMatrix[2][j]=0;
             }
         }
-
+        std::cout<<"============"<<std::endl;
+        std::cout<<"Multiplicacion Escalar"<<std::endl;
         for (int i=0; i<3; i++)
         {
             for (int j=0; j<COL; j++)
